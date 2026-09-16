@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-const heroImage = "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2200&q=88";
+const heroImage = "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=2200&q=88";
 
 const programs = [
   {
@@ -43,12 +43,12 @@ const programs = [
     icon: Gem,
   },
   {
-    id: "jewelry",
+    id: "trees",
     number: "02",
     eyebrow: "مجموعة مميزة",
     title: "أشجار beads والنحاس",
     description:
-      "أشجار فنية تُبنى حبةً حبة من beads وأسلاك النحاس، بأغصان مرنة وألوان دافئة تضيف حضوراً حياً إلى رف أو طاولة.",
+      "أشجار فنية تُبنى حبةً حبة من beads وأسلاك النحاس، بأغصان مرنة وجدار دافئ تضيف حضوراً حياً إلى رف أو طاولة.",
     meta: "خرز · نحاس",
     accent: "#d8a342",
     icon: Sparkles,
@@ -73,10 +73,10 @@ const creativeLinks = [
 ];
 
 const gallery = [
-  { title: "ركن من البيت", tag: "ألوان دافئة", image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=88" },
-  { title: "شجرة beads", tag: "شجرة خرز", image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=88" },
-  { title: "برواز beads", tag: "معلّقة جدارية", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=88" },
-  { title: "ضوء على الرف", tag: "قطعة مميزة", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=88" },
+  { title: "تفاصيل على الحائط", tag: "جدار دافئ", image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=88" },
+  { title: "شجرة beads على الطاولة", tag: "شجرة خرز", image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=88" },
+  { title: "برواز beads معلّق", tag: "معلّقة جدارية", image: "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=900&q=88" },
+  { title: "قطعة على الطاولة", tag: "قطعة مميزة", image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=88" },
 ];
 
 const beadColors = ["#d9795b", "#d8a342", "#4b7f83", "#f6efe3", "#172c47", "#bb594b", "#d2b57b", "#8fb4a8"];
