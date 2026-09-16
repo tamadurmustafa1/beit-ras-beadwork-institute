@@ -14,6 +14,7 @@ import {
   Leaf,
   Mail,
   MapPin,
+  MessageCircle,
   Menu,
   Palette,
   Phone,
@@ -80,12 +81,39 @@ const gallery = [
 
 const beadColors = ["#d9795b", "#d8a342", "#4b7f83", "#f6efe3", "#172c47", "#bb594b", "#d2b57b", "#8fb4a8"];
 
+const advisorQuestions = [
+  { key: "piece", title: "ما الذي تبحثين عنه؟", subtitle: "نبدأ من القطعة التي تتخيلينها", options: [
+    { value: "wall", label: "جدارية للحائط", icon: "✦" },
+    { value: "tree", label: "شجرة من الخرز", icon: "♧" },
+    { value: "corner", label: "إكسسوار لزاوية", icon: "◌" },
+  ] },
+  { key: "mood", title: "أي إحساس تريدين؟", subtitle: "اختاري المزاج الأقرب لبيتكِ", options: [
+    { value: "warm", label: "دفء وألوان ترابية", icon: "◒" },
+    { value: "calm", label: "هدوء وألوان ناعمة", icon: "○" },
+    { value: "bold", label: "جرأة وتباين واضح", icon: "✺" },
+  ] },
+  { key: "occasion", title: "لمن أو لأي مكان؟", subtitle: "تفصيلة أخيرة لنقترح بدقة", options: [
+    { value: "self", label: "لبيتي", icon: "⌂" },
+    { value: "gift", label: "هدية مميزة", icon: "♡" },
+    { value: "custom", label: "طلب خاص", icon: "✎" },
+  ] },
+];
+
+const advisorResults: Record<string, { title: string; text: string; color: string }> = {
+  wall: { title: "مجموعة جداريات الحكاية", text: "لوحة خرز مصممة لتكون نقطة الضوء في الجدار، بألوان يمكن تنسيقها مع أثاثكِ.", color: "#d9795b" },
+  tree: { title: "مجموعة أشجار الخرز", text: "شجرة يدوية بأغصان مرنة وتفاصيل لامعة؛ قطعة حية لرف أو طاولة أو مدخل البيت.", color: "#4b7f83" },
+  corner: { title: "مجموعة تفاصيل للبيت", text: "إكسسوار صغير بلمسة كبيرة، مثالي لزاوية القراءة أو طاولة القهوة أو كهدية قريبة.", color: "#d8a342" },
+};
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProgram, setActiveProgram] = useState("foundation");
   const [email, setEmail] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [advisorOpen, setAdvisorOpen] = useState(false);
+  const [advisorStep, setAdvisorStep] = useState(0);
+  const [advisorAnswers, setAdvisorAnswers] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const onScroll = () => {
@@ -116,6 +144,22 @@ export default function Home() {
     });
     setEmail("");
   };
+
+  const chooseAdvisor = (value: string) => {
+    const question = advisorQuestions[advisorStep];
+    const nextAnswers = { ...advisorAnswers, [question.key]: value };
+    setAdvisorAnswers(nextAnswers);
+    if (advisorStep < advisorQuestions.length - 1) {
+      setAdvisorStep((step) => step + 1);
+    }
+  };
+
+  const resetAdvisor = () => {
+    setAdvisorStep(0);
+    setAdvisorAnswers({});
+  };
+
+  const advisorResult = advisorResults[advisorAnswers.piece] ?? advisorResults.corner;
 
   const submitContact = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -303,8 +347,30 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="location-section section-pad" id="location">
+          <div className="container location-grid">
+            <div className="location-copy reveal-up">
+              <span className="eyebrow">06 / زيارتنا</span>
+              <h2>نلتقي بكِ<br /><em>في بيت راس.</em></h2>
+              <p>معرضنا في إربد، منطقة التطوير الحضري / بيت راس، بجانب المركز الصحي. تعالي لتشاهدي الخرز عن قرب وتختاري قطعتكِ.</p>
+              <div className="location-address"><span><MapPin size={17} /></span><strong>منطقة التطوير الحضري، بيت راس<br /><small>بجانب المركز الصحي · إربد، الأردن</small></strong></div>
+              <a className="button button--ink location-link" href="https://www.google.com/maps/search/?api=1&query=التطوير+الحضري+بيت+راس+بجانب+المركز+الصحي+إربد" target="_blank" rel="noreferrer">افتحي الاتجاهات <ExternalLink size={15} /></a>
+            </div>
+            <div className="map-frame reveal-up reveal-delay-1">
+              <iframe title="خريطة موقع بيت راس في إربد" src="https://www.openstreetmap.org/export/embed.html?bbox=35.79%2C32.50%2C35.86%2C32.56&layer=mapnik&marker=32.535%2C35.83" loading="lazy" />
+              <div className="map-pin-card"><span><MapPin size={16} /></span><div><strong>بيت راس · إربد</strong><small>التطوير الحضري بجانب المركز الصحي</small></div></div>
+            </div>
+          </div>
+        </section>
+
         <section className="newsletter-band"><div className="container newsletter-inner"><div><span className="eyebrow eyebrow--light">جديد بيت راس</span><h3>قطعة جميلة، كل فترة.</h3></div><form onSubmit={submitNewsletter}><input value={email} onChange={(event) => setEmail(event.target.value)} type="email" placeholder="بريدكِ الإلكتروني" aria-label="البريد الإلكتروني للنشرة" required /><button type="submit" aria-label="الاشتراك"><ArrowLeft size={19} /></button></form></div></section>
       </main>
+
+      <button className={`advisor-launcher ${advisorOpen ? "advisor-launcher--open" : ""}`} onClick={() => setAdvisorOpen((open) => !open)} aria-label="فتح مستشار اختيار القطعة">{advisorOpen ? <X size={20} /> : <MessageCircle size={20} />}<span>مستشار القطعة</span></button>
+      {advisorOpen && <aside className="advisor-panel" aria-label="مستشار اختيار القطعة">
+        <div className="advisor-panel-head"><div><span className="eyebrow">مستشار بيت راس</span><h3>نساعدكِ تختارين<br /><em>قطعتكِ الأقرب.</em></h3></div><button onClick={() => setAdvisorOpen(false)} aria-label="إغلاق المستشار"><X size={18} /></button></div>
+        {advisorStep < advisorQuestions.length ? <div className="advisor-question"><div className="advisor-progress"><span>{String(advisorStep + 1).padStart(2, "0")}</span><i><b style={{ width: `${((advisorStep + 1) / advisorQuestions.length) * 100}%` }} /></i><span>03</span></div><p>{advisorQuestions[advisorStep].subtitle}</p><h4>{advisorQuestions[advisorStep].title}</h4><div className="advisor-options">{advisorQuestions[advisorStep].options.map((option) => <button key={option.value} onClick={() => chooseAdvisor(option.value)}><span>{option.icon}</span>{option.label}<ArrowLeft size={15} /></button>)}</div></div> : <div className="advisor-result"><span className="result-bead" style={{ background: advisorResult.color }} /><small>اقتراحنا لكِ</small><h4>{advisorResult.title}</h4><p>{advisorResult.text}</p><button className="button button--saffron" onClick={() => { setAdvisorOpen(false); scrollTo("contact"); }}>أرغب بهذه القطعة <ArrowLeft size={15} /></button><button className="advisor-reset" onClick={resetAdvisor}>أعيدي الاختيار</button></div>}
+      </aside>}
 
       <footer className="site-footer"><div className="container footer-top"><div className="brand brand--footer"><span className="brand-mark" aria-hidden="true"><span /><span /><span /><span /></span><span className="brand-copy"><strong>بيت راس</strong><small>معرض الحرفة المعاصرة</small></span></div><p>نصنع قطعاً تتسع لبيتكِ،<br />وتترك أثراً يشبهكِ.</p><div className="footer-socials"><a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={17} /></a><a href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="Youtube"><Youtube size={17} /></a><a href="mailto:hello@beitrascraft.jo" aria-label="Email"><Mail size={17} /></a></div></div><div className="container footer-bottom"><span>© 2026 بيت راس. صُنع بحب في الأردن.</span><span className="footer-note"><Leaf size={14} /> قطعة تعيش</span></div></footer>
     </div>
