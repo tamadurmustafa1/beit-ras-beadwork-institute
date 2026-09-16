@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-const heroImage = "/manus-storage/beit-ras-hero_1b6c1244.jpg";
+const heroImage = "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2200&q=88";
 
 const programs = [
   {
@@ -310,5 +310,4 @@ export default function Home() {
     </div>
   );
 }
-
 
