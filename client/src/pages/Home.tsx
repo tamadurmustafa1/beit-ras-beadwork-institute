@@ -35,10 +35,10 @@ const programs = [
     id: "foundation",
     number: "01",
     eyebrow: "مجموعة أولى",
-    title: "زوايا مضيئة",
+    title: "براويز الخرز",
     description:
-      "لوحات ومعلّقات جدارية تنسج الضوء واللون في زوايا البيت، وتمنح الجدار شخصية لا تتكرر.",
-    meta: "لوحات · معلّقات",
+      "براويز جدارية من حبات الخرز beads، تُنسج حول صورة أو مرآة أو مساحة فارغة لتمنح الجدار شخصية لا تتكرر.",
+    meta: "براويز · جدار",
     accent: "#d9795b",
     icon: Gem,
   },
@@ -46,10 +46,10 @@ const programs = [
     id: "jewelry",
     number: "02",
     eyebrow: "مجموعة مميزة",
-    title: "أشجار الخرز",
+    title: "أشجار beads والنحاس",
     description:
-      "أشجار صغيرة تُبنى حبةً حبة، بأغصان مرنة وألوان دافئة تضيف حضوراً حياً إلى رف أو طاولة.",
-    meta: "أشجار · قطع فريدة",
+      "أشجار فنية تُبنى حبةً حبة من beads وأسلاك النحاس، بأغصان مرنة وألوان دافئة تضيف حضوراً حياً إلى رف أو طاولة.",
+    meta: "خرز · نحاس",
     accent: "#d8a342",
     icon: Sparkles,
   },
@@ -57,10 +57,10 @@ const programs = [
     id: "heritage",
     number: "03",
     eyebrow: "للمكان حكاية",
-    title: "تفاصيل للبيت",
+    title: "إكسسوارات الخرز",
     description:
-      "إكسسوارات منزلية صغيرة، من المزهريات المزينة إلى القطع التي تكمل ركنك المفضل بلمسة يدوية.",
-    meta: "قطع · تنسيقات",
+      "قطع منزلية من beads، مثل تعليقات الرفوف وتفاصيل المزهريات والقطع الصغيرة التي تكمل ركنك المفضل بلمسة يدوية.",
+    meta: "beads · تنسيقات",
     accent: "#4b7f83",
     icon: Palette,
   },
@@ -74,8 +74,8 @@ const creativeLinks = [
 
 const gallery = [
   { title: "ركن من البيت", tag: "ألوان دافئة", image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=88" },
-  { title: "تفاصيل تنبض", tag: "شجرة خرز", image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=88" },
-  { title: "ذاكرة على الحائط", tag: "معلّقة جدارية", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=88" },
+  { title: "شجرة beads", tag: "شجرة خرز", image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=88" },
+  { title: "برواز beads", tag: "معلّقة جدارية", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=88" },
   { title: "ضوء على الرف", tag: "قطعة مميزة", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=88" },
 ];
 
@@ -100,9 +100,9 @@ const advisorQuestions = [
 ];
 
 const advisorResults: Record<string, { title: string; text: string; color: string }> = {
-  wall: { title: "مجموعة جداريات الحكاية", text: "لوحة خرز مصممة لتكون نقطة الضوء في الجدار، بألوان يمكن تنسيقها مع أثاثكِ.", color: "#d9795b" },
-  tree: { title: "مجموعة أشجار الخرز", text: "شجرة يدوية بأغصان مرنة وتفاصيل لامعة؛ قطعة حية لرف أو طاولة أو مدخل البيت.", color: "#4b7f83" },
-  corner: { title: "مجموعة تفاصيل للبيت", text: "إكسسوار صغير بلمسة كبيرة، مثالي لزاوية القراءة أو طاولة القهوة أو كهدية قريبة.", color: "#d8a342" },
+  wall: { title: "مجموعة براويز beads للحائط", text: "لوحة خرز مصممة لتكون نقطة الضوء في الجدار، بألوان يمكن تنسيقها مع أثاثكِ.", color: "#d9795b" },
+  tree: { title: "مجموعة أشجار beads والنحاس", text: "شجرة يدوية بأغصان مرنة وتفاصيل لامعة؛ قطعة حية لرف أو طاولة أو مدخل البيت.", color: "#4b7f83" },
+  corner: { title: "مجموعة إكسسوارات الخرز", text: "إكسسوار صغير بلمسة كبيرة، مثالي لزاوية القراءة أو طاولة القهوة أو كهدية قريبة.", color: "#d8a342" },
 };
 
 export default function Home() {
@@ -218,9 +218,9 @@ export default function Home() {
             ))}
           </div>
           <div className="container hero-content">
-            <div className="hero-kicker"><span className="kicker-dot" /> معرض الحرفة اليدوية / بيت راس</div>
+            <div className="hero-kicker"><span className="kicker-dot" /> معرض أشغال الخرز beads / بيت راس</div>
             <h1>حين تتحول<br /><em>الحبة</em> إلى حكاية.</h1>
-            <p className="hero-lede">قطع يدوية بالخرز تضيف للبيت لوناً، وللحائط حكاية، ولكل زاوية تفصيلاً يشبهكِ تماماً.</p>
+            <p className="hero-lede">أشغال يدوية بالخرز beads: أشجار من حبات الخرز وأسلاك النحاس، وبراويز خرز معلّقة على الحائط، وقطع تضيف للبيت حكاية.</p>
             <div className="hero-actions">
               <button className="button button--saffron" onClick={() => scrollTo("programs")}>اكتشفي مجموعاتنا <ArrowLeft size={18} /></button>
               <button className="text-link text-link--light" onClick={() => scrollTo("about")}><span className="play-ring"><Play size={12} fill="currentColor" /></span> شاهدي كيف تُصنع القطعة</button>
@@ -249,8 +249,8 @@ export default function Home() {
               <div className="scribble" aria-hidden="true">✦</div>
             </div>
             <div className="about-copy reveal-up reveal-delay-1">
-              <p className="lead-copy">في بيت راس، نصنع بالخرز قطعاً تمنح البيت روحاً: من لوحات الحائط إلى أشجار الخرز، كل تفصيلة تبدأ بحبة وتنتهي بحكاية.</p>
-              <p>من قلب بيت راس، وُلد هذا المعرض ليحتفي بجمال التفاصيل الصغيرة. نختار الألوان والخامات بعناية، ونمنح كل قطعة وقتها حتى تصل إليكِ وهي تحمل دفء اليد وصدق الحكاية.</p>
+              <p className="lead-copy">في بيت راس، نصنع من حبات الخرز beads وأسلاك النحاس قطعاً تمنح البيت روحاً: أشجاراً يدوية، وبراويز خرز للحائط، وتفاصيل صغيرة تبدأ بحبة وتنتهي بحكاية.</p>
+              <p>من قلب بيت راس، وُلد هذا المعرض ليحتفي بجمال الخرز وتفاصيله. نختار حبات beads بعناية، ونشكّل أسلاك النحاس بهدوء، ونمنح كل قطعة وقتها حتى تصل إليكِ وهي تحمل دفء اليد وصدق الحكاية.</p>
               <button className="text-link text-link--ink" onClick={() => scrollTo("contact")}>تعرّفي على طريقتنا <ArrowUpLeft size={18} /></button>
             </div>
             <div className="about-card reveal-up reveal-delay-2">
@@ -287,7 +287,7 @@ export default function Home() {
                     </button>
                   );
                 })}
-                <div className="program-note"><BookOpen size={17} /><span>كل قطعة تُصنع يدوياً.<br /><b>وكل حبة لها مكان.</b></span></div>
+                <div className="program-note"><BookOpen size={17} /><span>كل قطعة تُصنع يدوياً من beads ونحاس.<br /><b>وكل حبة خرز لها مكان.</b></span></div>
               </div>
               <div className="program-detail" style={{ "--program-accent": selectedProgram.accent } as React.CSSProperties}>
                 <div className="program-detail-top"><span>{selectedProgram.eyebrow}</span><span className="program-pulse" /></div>
@@ -306,14 +306,14 @@ export default function Home() {
               <div className="lab-visual-label"><span className="pulse-dot" /> ورشة التخصيص</div>
               <div className="lab-canvas">
                 {Array.from({ length: 28 }).map((_, index) => <span key={index} className="canvas-bead" style={{ background: beadColors[index % beadColors.length], left: `${13 + ((index * 19) % 73)}%`, top: `${12 + ((index * 37) % 70)}%`, width: `${8 + (index % 3) * 4}px`, height: `${8 + (index % 3) * 4}px`, animationDelay: `${index * 0.12}s` }} />)}
-                <div className="lab-center"><span className="latin">YOUR HOME</span><strong>قطعتكِ<br />تبدأ هنا</strong><small>اختاري ألوانكِ</small></div>
+                <div className="lab-center"><span className="latin">BEADS + COPPER</span><strong>قطعتكِ<br />تبدأ هنا</strong><small>اختاري حباتكِ</small></div>
               </div>
-              <div className="lab-caption"><span>01</span><p>ألوانكِ · مساحتكِ · قصتكِ</p><span>∞</span></div>
+              <div className="lab-caption"><span>01</span><p>حباتكِ · نحاسكِ · قصتكِ</p><span>∞</span></div>
             </div>
             <div className="lab-copy reveal-up reveal-delay-1">
               <span className="eyebrow">03 / 03 / لمستكِ الخاصة</span>
               <h2>لا توجد<br /><em>طريقة واحدة</em><br />لبيت جميل.</h2>
-              <p>في “ورشة التخصيص” نمنحكِ مساحة لتجربي بلا خوف. اختاري لوحة الألوان، بدّلي الخامات، واسمحي للصدفة أن تقودكِ إلى نتيجة لم تتوقعيها.</p>
+              <p>في “ورشة التخصيص” نساعدكِ على اختيار ألوان حبات beads، سماكة أسلاك النحاس، وحجم البرواز أو الشجرة، حتى تولد قطعة تناسب جداركِ وركنكِ المفضل.</p>
               <div className="creative-links">
                 {creativeLinks.map((link) => { const Icon = link.icon; return <a href={link.href} target="_blank" rel="noreferrer" key={link.label}><span className="creative-icon"><Icon size={17} /></span><span><strong>{link.label}</strong><small>{link.sub}</small></span><ExternalLink size={15} /></a>; })}
               </div>
@@ -324,8 +324,8 @@ export default function Home() {
         <section className="gallery-section section-pad" id="gallery">
           <div className="container">
             <div className="section-heading-row gallery-heading">
-              <div><span className="eyebrow">04 / من مجموعاتنا</span><h2>أثر اليد<br /><em>في كل زاوية.</em></h2></div>
-              <p>قطع صُنعت هنا ببطء ومحبة، لتعيش في البيوت وتبقى قريبة من العين والقلب.</p>
+              <div><span className="eyebrow">04 / من مجموعاتنا</span><h2>أثر الخرز<br /><em>على كل جدار.</em></h2></div>
+              <p>أشجار من حبات الخرز وأسلاك النحاس، وبراويز خرز تعلّق على الحائط، وقطع صُنعت ببطء ومحبة لتعيش في البيوت.</p>
             </div>
             <div className="gallery-grid">
               {gallery.map((item, index) => <a className={`gallery-card gallery-card--${index + 1}`} href={item.image} target="_blank" rel="noreferrer" key={item.title}>
